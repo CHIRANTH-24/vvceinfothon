@@ -14,7 +14,7 @@ const page = () => {
       </h1>
 
       {/* Water Consumption Chart */}
-      <div className="bg-white shadow-md rounded-xl p-6">
+      <div className=" shadow-md rounded-xl p-6">
         <WaterComsumption />
       </div>
 

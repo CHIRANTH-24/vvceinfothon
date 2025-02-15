@@ -16,7 +16,7 @@ export function CategoryWiseDialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button>Category Wise</Button>
+                <Button variant="destructive">Category Wise</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
