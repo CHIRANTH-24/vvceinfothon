@@ -18,50 +18,61 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
+
 const chartData = [
-    { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-    { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-    { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-    { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-    { browser: "other", visitors: 190, fill: "var(--color-other)" },
+    { category: "Drinking", usage: 50, fill: "var(--color-drinking)" },
+    { category: "Cooking", usage: 80, fill: "var(--color-cooking)" },
+    { category: "Bathing", usage: 200, fill: "var(--color-bathing)" },
+    { category: "Laundry", usage: 150, fill: "var(--color-laundry)" },
+    { category: "Cleaning", usage: 120, fill: "var(--color-cleaning)" },
+    { category: "Gardening", usage: 100, fill: "var(--color-gardening)" },
+    { category: "Toilet", usage: 250, fill: "var(--color-toilet)" },
 ]
 
 const chartConfig = {
-    visitors: {
-        label: "Visitors",
+    usage: {
+        label: "Usage (L)"
     },
-    chrome: {
-        label: "Chrome",
+    drinking: {
+        label: "Drinking",
         color: "hsl(var(--chart-1))",
     },
-    safari: {
-        label: "Safari",
+    cooking: {
+        label: "Cooking",
         color: "hsl(var(--chart-2))",
     },
-    firefox: {
-        label: "Firefox",
+    bathing: {
+        label: "Bathing",
         color: "hsl(var(--chart-3))",
     },
-    edge: {
-        label: "Edge",
+    laundry: {
+        label: "Laundry",
         color: "hsl(var(--chart-4))",
     },
-    other: {
-        label: "Other",
+    cleaning: {
+        label: "Cleaning",
         color: "hsl(var(--chart-5))",
+    },
+    gardening: {
+        label: "Gardening",
+        color: "hsl(var(--chart-6))",
+    },
+    toilet: {
+        label: "Toilet",
+        color: "hsl(var(--chart-7))",
     },
 }
 
 export function CategoryPie() {
-    const totalVisitors = React.useMemo(() => {
-        return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
+    const totalUsage = React.useMemo(() => {
+        return chartData.reduce((acc, curr) => acc + curr.usage, 0)
     }, [])
 
     return (
         <Card className="flex flex-col">
             <CardHeader className="items-center pb-0">
-                <CardTitle>Pie Chart - Donut with Text</CardTitle>
-                <CardDescription>January - June 2024</CardDescription>
+                <CardTitle>Pie Chart - Water Usage</CardTitle>
+                <CardDescription>Household Water Consumption</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
                 <ChartContainer
@@ -75,8 +86,8 @@ export function CategoryPie() {
                         />
                         <Pie
                             data={chartData}
-                            dataKey="visitors"
-                            nameKey="browser"
+                            dataKey="usage"
+                            nameKey="category"
                             innerRadius={60}
                             strokeWidth={5}
                         >
@@ -95,14 +106,14 @@ export function CategoryPie() {
                                                     y={viewBox.cy}
                                                     className="fill-foreground text-3xl font-bold"
                                                 >
-                                                    {totalVisitors.toLocaleString()}
+                                                    {totalUsage.toLocaleString()} L
                                                 </tspan>
                                                 <tspan
                                                     x={viewBox.cx}
                                                     y={(viewBox.cy || 0) + 24}
                                                     className="fill-muted-foreground"
                                                 >
-                                                    Visitors
+                                                    Total Usage
                                                 </tspan>
                                             </text>
                                         )
@@ -118,7 +129,7 @@ export function CategoryPie() {
                     Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
                 </div>
                 <div className="leading-none text-muted-foreground">
-                    Showing total visitors for the last 6 months
+                    Showing total water usage for household activities
                 </div>
             </CardFooter>
         </Card>
