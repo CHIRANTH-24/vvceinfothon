@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import Provider from "./provider";
+import { ThemeProvider } from "@/components/nav/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,15 @@ export default function RootLayout({ children }) {
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <UserButton />
-          <Provider>{children}</Provider>
+          <Provider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              disableSystemTheme
+            >
+              {children}
+            </ThemeProvider>
+          </Provider>
         </body>
       </html>
     </ClerkProvider>
