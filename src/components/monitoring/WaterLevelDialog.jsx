@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CategoryPie } from "./CategoryPie"
 import { WaterLevel } from "./WaterLevel"
+import { WaterLevel2 } from "./WaterLevel2"
 
 export function WaterLevelDialog() {
     return (
@@ -25,7 +26,7 @@ export function WaterLevelDialog() {
                 </DialogHeader>
                 <div className="grid grid-cols-2 gap-4 py-4">
                     <WaterLevel />
-                    <WaterLevel />
+                    <WaterLevel2 />
                 </div>
             </DialogContent>
         </Dialog>

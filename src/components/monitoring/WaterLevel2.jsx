@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/card"
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
 const chartData = [
-    { browser: "safari", visitors: 1209, fill: "var(--color-safari)" },
+    { browser: "safari", visitors: 258, fill: "var(--color-safari)" },
 ]
 
 const chartConfig = {
@@ -32,11 +32,11 @@ const chartConfig = {
     },
 }
 
-export function WaterLevel() {
+export function WaterLevel2() {
     return (
         <Card className="flex flex-col">
             <CardHeader className="items-center pb-5">
-                <CardTitle>Sump </CardTitle>
+                <CardTitle>Overhead Tank </CardTitle>
                 <CardDescription>Water Level</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
@@ -47,7 +47,7 @@ export function WaterLevel() {
                     <RadialBarChart
                         data={chartData}
                         startAngle={0}
-                        endAngle={300}
+                        endAngle={180}
                         innerRadius={80}
                         outerRadius={110}
                     >
