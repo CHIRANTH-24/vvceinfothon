@@ -25,7 +25,7 @@ const menuItems = [
     {
         icon: <Plane className="h-5 w-5" />,
         label: "Recommendation",
-        href: "/recommendation",
+        href: "/Recoomends",
         gradient: "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)",
         iconColor: "text-green-500",
     },
@@ -91,8 +91,8 @@ export function MenuBar() {
         >
             <motion.div
                 className={`absolute -inset-2 bg-gradient-radial from-transparent ${isDarkTheme
-                        ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-red-400/30 via-90%"
-                        : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-red-400/20 via-90%"
+                    ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-red-400/30 via-90%"
+                    : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-red-400/20 via-90%"
                     } to-transparent rounded-3xl z-0 pointer-events-none`}
                 variants={navGlowVariants}
             />
