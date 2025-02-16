@@ -1,5 +1,7 @@
 "use client";
 
+import Achievements from "@/components/rewards/achievements";
+import RedeemPoints from "@/components/rewards/redeem-points";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
@@ -35,7 +37,7 @@ export default function RecommendationPage() {
     };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white flex flex-col items-center px-6 py-10">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white flex flex-col items-center px-6 py-10 grid-cols-4">
       <motion.h1
         className="text-3xl font-bold mb-6 text-center"
         initial={{ opacity: 0, y: -30 }}
@@ -56,17 +58,10 @@ export default function RecommendationPage() {
         <Progress value={(waterUsage / goal) * 100} className="mt-4" />
       </Card>
 
-      <motion.div
-        className="w-full max-w-3xl mt-6 p-6 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-lg shadow-md"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h3 className="text-lg font-semibold"> Today's Water-Saving Tip</h3>
-        <p className="mt-2 text-gray-700 dark:text-gray-300">
-          {recommendations[tipIndex]}
-        </p>
-      </motion.div>
+      
+      <div>
+        <Achievements />
+      </div>
     </div>
   );
 }
