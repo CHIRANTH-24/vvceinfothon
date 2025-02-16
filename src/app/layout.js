@@ -8,6 +8,7 @@ import { MenuBar } from "@/components/nav/menu-bar";
 import { UserButton } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import { MobileMenu } from "@/components/nav/MobileMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,15 +43,24 @@ export default function RootLayout({ children }) {
                 <div className="container flex h-14 max-w-screen-2xl items-center justify-between px-4">
                   <div className="flex items-center">
                     <a className="flex items-center space-x-2" href="/">
-                      <Image alt="logo" src="/water-logo.svg" height={30} width={30} />
+                      <Image
+                        alt="logo"
+                        src="/water-logo.svg"
+                        height={30}
+                        width={30}
+                      />
                     </a>
                   </div>
-                  <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-                    <MenuBar />
+                  <nav className="flex items-center text-sm font-medium">
+                    <div className="hidden md:flex space-x-6">
+                      <MenuBar />
+                    </div>
+                    <MobileMenu />
                   </nav>
+
                   <div className="flex items-center space-x-4">
                     <Themetoggle />
-                    <UserButton afterSignOutUrl="/" />
+                    <UserButton />
                   </div>
                 </div>
               </header>
