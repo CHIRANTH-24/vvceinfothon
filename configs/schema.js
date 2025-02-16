@@ -17,12 +17,9 @@ export const users = pgTable("users", {
     name: varchar().notNull(),
     email: varchar().notNull()
 });
-// export const RECIPE_TABLE = pgTable("recipeTable", {
-//   id: serial().primaryKey(),
-//   recipeId: varchar().notNull(),
-//   ingridients: varchar().notNull(),
-//   calories: varchar().notNull(),
-//   recipeLayout: json(),
-//   createdBy: varchar().notNull(),
-//   status: varchar().default("Genrating"),
-// });
+export const IOT_TABLE = pgTable("iot_data", {
+  userid: serial().primaryKey(),
+  name: varchar().default("Chiranth"),
+  iotLayout: json(),
+  status: varchar().default("IOT connection established")
+});

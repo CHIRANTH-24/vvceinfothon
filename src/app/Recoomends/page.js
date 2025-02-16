@@ -24,6 +24,15 @@ export default function RecommendationPage() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+    const getIot = async () => {
+      try {
+        const result = await axios.get("/api/iot");
+        setRecipe(result.data.result);
+        console.log(result.data.result);
+      } catch (error) {
+        console.error("Error fetching recipe:", error);
+      }
+    };
 
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white flex flex-col items-center px-6 py-10">
